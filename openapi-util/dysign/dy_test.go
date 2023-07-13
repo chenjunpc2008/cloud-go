@@ -22,13 +22,13 @@ func Test_GetTimestamp(t *testing.T) {
     assert.Equal(t, "2023-07-13T02:07:53Z", timeStr)
 }
 
-func Test_TimestampToUnix(t *testing.T) {
+func Test_TimestampToUnixSec(t *testing.T) {
 
-    tunix, err := TimestampToUnix("2023-07-13T02:07:53Z")
+    tunix, err := TimestampToUnixSec("2023-07-13T02:07:53Z")
     assert.Equal(t, nil, err)
     assert.Equal(t, int64(1689214073), tunix)
 
-    tunix, err = TimestampToUnix("2023-07-13T17:15:31+08")
+    tunix, err = TimestampToUnixSec("2023-07-13T17:15:31+08")
     assert.Equal(t, nil, err)
     assert.Equal(t, int64(1689239731), tunix)
 }

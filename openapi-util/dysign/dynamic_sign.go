@@ -32,7 +32,13 @@ func GetTimestamp() (timeStr string) {
     return timeStr
 }
 
-func TimestampToUnix(timestamp string) (tunix int64, err error) {
+/*
+TimestampToUnixSec convert timestamp to seconds in unix format
+
+@return tusec int64 : seconds in unix format
+@return err error : error
+*/
+func TimestampToUnixSec(timestamp string) (tusec int64, err error) {
 
     var (
         t time.Time
@@ -43,7 +49,7 @@ func TimestampToUnix(timestamp string) (tunix int64, err error) {
         return
     }
 
-    tunix = t.Unix()
+    tusec = t.Unix()
 
     return
 }
