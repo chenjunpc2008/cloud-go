@@ -7,7 +7,7 @@ import (
 
     "github.com/bmizerany/assert"
 
-    "../dysign"
+    "github.com/chenjunpc2008/cloud-go/openapi-util/dysign"
 )
 
 func Test_GetTimestamp(t *testing.T) {
