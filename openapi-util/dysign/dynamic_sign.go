@@ -9,6 +9,10 @@ import (
     "time"
 )
 
+const (
+    timeForamt = "2006-01-02T15:04:05Z07"
+)
+
 /*
 GetTimestamp get timestamp
 
@@ -17,7 +21,6 @@ GetTimestamp get timestamp
 @return the timestamp
 */
 func GetTimestamp() (timeStr string) {
-    const timeForamt = "2006-01-02T15:04:05Z07"
 
     var (
         tZone = time.FixedZone("UTC", 0)
@@ -27,6 +30,22 @@ func GetTimestamp() (timeStr string) {
     timeStr = now.In(tZone).Format(timeForamt)
 
     return timeStr
+}
+
+func TimestampToUnix(timestamp string) (tunix int64, err error) {
+
+    var (
+        t time.Time
+    )
+
+    t, err = time.Parse(timeForamt, timestamp)
+    if nil != err {
+        return
+    }
+
+    tunix = t.Unix()
+
+    return
 }
 
 /*

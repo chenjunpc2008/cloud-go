@@ -1,4 +1,4 @@
-package dysign_test
+package dysign
 
 import (
     "net/url"
@@ -6,8 +6,6 @@ import (
     "time"
 
     "github.com/bmizerany/assert"
-
-    "github.com/chenjunpc2008/cloud-go/openapi-util/dysign"
 )
 
 func Test_GetTimestamp(t *testing.T) {
@@ -22,6 +20,17 @@ func Test_GetTimestamp(t *testing.T) {
     timeStr := now.In(tZone).Format(timeForamt)
 
     assert.Equal(t, "2023-07-13T02:07:53Z", timeStr)
+}
+
+func Test_TimestampToUnix(t *testing.T) {
+
+    tunix, err := TimestampToUnix("2023-07-13T02:07:53Z")
+    assert.Equal(t, nil, err)
+    assert.Equal(t, int64(1689214073), tunix)
+
+    tunix, err = TimestampToUnix("2023-07-13T17:15:31+08")
+    assert.Equal(t, nil, err)
+    assert.Equal(t, int64(1689239731), tunix)
 }
 
 func Test_urlencode(t *testing.T) {
@@ -50,7 +59,7 @@ func Test_GetHmacsha1Signature(t *testing.T) {
         "FreezeStatus":     "ACTIVE",
     }
 
-    signature := dysign.GetHmacsha1Signature(params, "duh04756302dGYUEH937GFFUJE63468")
+    signature := GetHmacsha1Signature(params, "duh04756302dGYUEH937GFFUJE63468")
     expectedSignature := "TgEiEEyOK6T/G4dQVOkmD0w7cTs="
 
     assert.Equal(t, expectedSignature, signature)
