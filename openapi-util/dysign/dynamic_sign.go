@@ -13,10 +13,15 @@ const (
     timeForamt = "2006-01-02T15:04:05Z07"
 )
 
+const (
+    SignatureMethod_HMAC_SHA1 = "HMAC-SHA1"
+)
+
 /*
 GetTimestamp get timestamp
 
-按照ISO8601标准表示，并需要使用UTC时间及时区标识，格式为yyyy-MM-ddTHH:mm:ssZ
+use ISO8601 standard, UTC time and timezone flag,
+format is yyyy-MM-ddTHH:mm:ssZ
 
 @return the timestamp
 */
