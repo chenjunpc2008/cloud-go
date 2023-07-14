@@ -66,12 +66,13 @@ GetHmacsha1Signature get signature according to signedParams and secret
 @param secret : AccessKeySecret
 @return the signature
 */
-func GetHmacsha1Signature(toSignedParams map[string]string, secret string) (signature string) {
+func GetHmacsha1Signature(toSignedParams map[string]string, secret string) (
+    stringToSign, signature string) {
 
-    stringToSign := buildStringToSign(toSignedParams)
+    stringToSign = buildStringToSign(toSignedParams)
     signature = sign(stringToSign, secret, "&")
 
-    return signature
+    return stringToSign, signature
 }
 
 func buildStringToSign(toSignedParams map[string]string) (stringToSign string) {

@@ -59,7 +59,7 @@ func Test_GetHmacsha1Signature(t *testing.T) {
         "FreezeStatus":     "ACTIVE",
     }
 
-    signature := GetHmacsha1Signature(params, "duh04756302dGYUEH937GFFUJE63468")
+    _, signature := GetHmacsha1Signature(params, "duh04756302dGYUEH937GFFUJE63468")
     expectedSignature := "TgEiEEyOK6T/G4dQVOkmD0w7cTs="
 
     assert.Equal(t, expectedSignature, signature)
