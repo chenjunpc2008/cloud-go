@@ -36,7 +36,7 @@ func AesCbcEncrypt_HexStr(plainText string, secretKey string) (cipherText_Hex st
 }
 
 // AesCbcDecrypt_HexStr AES CBC decrypt
-func AesCbcDecrypt_HexStr(cipherText_Hex string, secretKey string) (plainText_Hex string, err error) {
+func AesCbcDecrypt_HexStr(cipherText_Hex string, secretKey string) (plainText string, err error) {
 	var (
 		byKey        = []byte(secretKey)
 		byPlainText  []byte
@@ -53,7 +53,7 @@ func AesCbcDecrypt_HexStr(cipherText_Hex string, secretKey string) (plainText_He
 		return
 	}
 
-	plainText_Hex = string(byPlainText)
+	plainText = string(byPlainText)
 
 	return
 }
@@ -78,7 +78,7 @@ func AesCbcEncrypt_Base64Str(plainText string, secretKey string) (cipherText_Bas
 }
 
 // AesCbcDecrypt_Base64Str AES CBC decrypt
-func AesCbcDecrypt_Base64Str(cipherText_Base64 string, secretKey string) (plainText_Base64 string, err error) {
+func AesCbcDecrypt_Base64Str(cipherText_Base64 string, secretKey string) (plainText string, err error) {
 	var (
 		byKey        = []byte(secretKey)
 		byPlainText  []byte
@@ -95,7 +95,7 @@ func AesCbcDecrypt_Base64Str(cipherText_Base64 string, secretKey string) (plainT
 		return
 	}
 
-	plainText_Base64 = string(byPlainText)
+	plainText = string(byPlainText)
 
 	return
 }
